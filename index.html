@@ -6,7 +6,7 @@
 		<title>test</title>
 	</head>
 	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-EWGL6MREBS"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCRT5BRDYY"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
 		function gtag() {
@@ -15,6 +15,16 @@
 		gtag('js', new Date());
 
 		gtag('config', 'G-EWGL6MREBS');
+
+
+			// Función para enviar el evento cuando se hace clic en el botón
+	function enviarEvento() {
+		gtag('event', 'formulario_enviado', {
+			'event_category': 'Formulario',
+			'event_label': 'Formulario enviado'
+		});
+		console.log('Evento enviado DANIEL: Formulario Enviado');
+	}
 	</script>
 
 	<body>
