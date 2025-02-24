@@ -3,7 +3,6 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		
 		<title>test</title>
 	</head>
 	<!-- Google tag (gtag.js) -->
@@ -16,8 +15,21 @@
 		gtag('js', new Date());
 
 		gtag('config', 'G-KRXW89KWDK');
+
+		// Función para enviar el evento cuando se hace clic en el botón
+		function enviarEvento() {
+			gtag('event', 'formulario_enviado', {
+				'event_category': 'Formulario',
+				'event_label': 'Formulario enviado'
+			});
+			console.log('Evento enviado DANIEL: Formulario Enviado');
+		}
 	</script>
 	<body>
+		<!-- Botón para invocar el evento -->
+		<button onclick="enviarEvento()">Enviar Evento</button>
+
+		<!-- Script para el chat -->
 		<script type="text/javascript">
 			(function () {
 				var proto = document.location.protocol || 'http:';
