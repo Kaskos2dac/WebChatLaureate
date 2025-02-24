@@ -5,6 +5,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>test</title>
 	</head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-EWGL6MREBS"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'G-EWGL6MREBS');
+	</script>
 
 	<body>
 		<!-- Botón para invocar el evento -->
@@ -12,16 +23,17 @@
 
 		<!-- Script para el chat -->
 
-		<script type='text/javascript'>
-  (function() {
-    var proto  = document.location.protocol || 'http:';
-    var node   = document.createElement('script');
-    node.type  = 'text/javascript';
-    node.async = true;
-    node.src   = proto +  '//webchat-cls-laureate.i6.inconcert.cloud/v3/click_to_chat?token=E1AB3590681AFFCBA7DEC246DE17ADDE';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(node, s);
-  })();
-</script>
+		<script type="text/javascript">
+			(function () {
+				var proto = document.location.protocol || 'http:';
+				var node = document.createElement('script');
+				node.type = 'text/javascript';
+				node.async = true;
+				node.src =
+					proto + '//webchat-cls-laureate.i6.inconcert.cloud/v3/click_to_chat?token=E1AB3590681AFFCBA7DEC246DE17ADDE';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(node, s);
+			})();
+		</script>
 	</body>
 </html>
