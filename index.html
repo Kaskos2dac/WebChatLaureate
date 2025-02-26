@@ -16,28 +16,37 @@
 
 		gtag('config', 'G-KRXW89KWDK');
 
+		// Función para enviar el evento cuando se hace clic en el botón
+		function enviarEvento() {
+			gtag('event', 'formulario_enviado', {
+				event_category: 'Formulario',
+				event_label: 'Formulario enviado',
+			});
+			console.log('Evento enviado DANIEL: Formulario Enviado');
+		}
 
-			// Función para enviar el evento cuando se hace clic en el botón
-	function enviarEvento() {
-		gtag('event', 'formulario_enviado', {
-			'event_category': 'Formulario',
-			'event_label': 'Formulario enviado'
+		window.addEventListener('message', (event) => {
+			if (event.data === 'getClientId') {
+				const gaCookie = document.cookie.split('; ').find((row) => row.startsWith('_ga='));
+				console.log('en front capturo gaCookie ', gaCookie);
+				if (gaCookie) {
+					const parts = gaCookie.split('.');
+					const clientId = parts.length >= 4 ? `${parts[2]}.${parts[3]}` : null;
+					event.source.postMessage({ clientId }, event.origin);
+				}
+			}
+
+			if (event.data && event.data.type === 'eventoAnalytics') {
+				console.log('📊 Evento recibido desde WebChat:', event.data);
+
+				gtag('event', event.data.eventName, {
+					event_category: event.data.eventParams.category,
+					event_label: event.data.eventParams.label,
+				});
+
+				console.log(`✅ Evento '${event.data.eventName}' enviado a Google Analytics.`);
+			}
 		});
-		console.log('Evento enviado DANIEL: Formulario Enviado');
-	}
-
-	window.addEventListener("message", (event) => {
-    if (event.data === "getClientId") {
-        const gaCookie = document.cookie.split('; ').find(row => row.startsWith('_ga='));
-	    console.log("en front capturo gaCookie ", gaCookie)
-        if (gaCookie) {
-            const parts = gaCookie.split('.');
-            const clientId = parts.length >= 4 ? `${parts[2]}.${parts[3]}` : null;
-            event.source.postMessage({ clientId }, event.origin);
-        }
-    }
-});
-		
 	</script>
 
 	<body>
