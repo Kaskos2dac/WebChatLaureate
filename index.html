@@ -29,6 +29,7 @@
 	window.addEventListener("message", (event) => {
     if (event.data === "getClientId") {
         const gaCookie = document.cookie.split('; ').find(row => row.startsWith('_ga='));
+	    console.log("en front capturo gaCookie ", gaCookie)
         if (gaCookie) {
             const parts = gaCookie.split('.');
             const clientId = parts.length >= 4 ? `${parts[2]}.${parts[3]}` : null;
