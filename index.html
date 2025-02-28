@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>PruebaDaniel2</title>
+		<title>test</title>
 		<!-- Google Tag Manager -->
 		<script>
 			(function (w, d, s, l, i) {
@@ -21,6 +21,19 @@
 	</head>
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-KRXW89KWDK"></script>
+	<script>
+		function enviarEvento() {
+			window.dataLayer.push({
+				event: 'form_interaction',
+				form_name: 'Formulario Chat',
+				form_step: 'step_2',
+				department: 'Quiero resincribirme',
+				chat_status: 'chat iniciado',
+				client_id: '123456789',
+			});
+			alert('Evento enviado a dataLayer'); // Solo para pruebas
+		}
+	</script>
 
 	<body>
 		<!-- Google Tag Manager (noscript) -->
@@ -39,18 +52,6 @@
 		<!-- Script para el chat -->
 
 		<script type="text/javascript">
-			function enviarEvento() {
-				window.dataLayer.push({
-					event: 'form_interaction',
-					form_name: 'Formulario Chat',
-					form_step: 'step_2',
-					department: 'Quiero resincribirme',
-					chat_status: 'chat iniciado',
-					client_id: '123456789',
-				});
-				alert('Evento enviado a dataLayer'); // Solo para pruebas
-			}
-
 			(function () {
 				var proto = document.location.protocol || 'http:';
 				var node = document.createElement('script');
