@@ -3,53 +3,36 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>test</title>
+		<title>PruebaDanielInconcert</title>
+		<!-- Google Tag Manager -->
+		<script>
+			(function (w, d, s, l, i) {
+				w[l] = w[l] || [];
+				w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+				var f = d.getElementsByTagName(s)[0],
+					j = d.createElement(s),
+					dl = l != 'dataLayer' ? '&l=' + l : '';
+				j.async = true;
+				j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+				f.parentNode.insertBefore(j, f);
+			})(window, document, 'script', 'dataLayer', 'GTM-KM8B9DQD');
+		</script>
+		<!-- End Google Tag Manager -->
 	</head>
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-KRXW89KWDK"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() {
-			dataLayer.push(arguments);
-		}
-		gtag('js', new Date());
-
-		gtag('config', 'G-KRXW89KWDK');
-
-		// Función para enviar el evento cuando se hace clic en el botón
-		function enviarEvento() {
-			gtag('event', 'formulario_enviado', {
-				event_category: 'Formulario',
-				event_label: 'Formulario enviado',
-			});
-			console.log('Evento enviado DANIEL: Formulario Enviado');
-		}
-
-		window.addEventListener('message', (event) => {
-			if (event.data === 'getClientId') {
-				const gaCookie = document.cookie.split('; ').find((row) => row.startsWith('_ga='));
-				console.log('en front capturo gaCookie ', gaCookie);
-				if (gaCookie) {
-					const parts = gaCookie.split('.');
-					const clientId = parts.length >= 4 ? `${parts[2]}.${parts[3]}` : null;
-					event.source.postMessage({ clientId }, event.origin);
-				}
-			}
-
-			if (event.data && event.data.type === 'eventoAnalytics') {
-				console.log('📊 Evento recibido desde WebChat:', event.data);
-
-				gtag('event', event.data.eventName, {
-					event_category: event.data.eventParams.category,
-					event_label: event.data.eventParams.label,
-				});
-
-				console.log(`✅ Evento '${event.data.eventName}' enviado a Google Analytics.`);
-			}
-		});
-	</script>
 
 	<body>
+		<!-- Google Tag Manager (noscript) -->
+		<noscript
+			><iframe
+				src="https://www.googletagmanager.com/ns.html?id=GTM-KM8B9DQD"
+				height="0"
+				width="0"
+				style="display: none; visibility: hidden"
+			></iframe
+		></noscript>
+		<!-- End Google Tag Manager (noscript) -->
 		<!-- Botón para invocar el evento -->
 		<button onclick="enviarEvento()">Enviar Evento</button>
 
