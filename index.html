@@ -63,7 +63,20 @@
 		}
 
 
-
+		document.addEventListener("DOMContentLoaded", function() {
+		    var btn = document.getElementById("startButton");
+		    if (btn) {
+		        btn.addEventListener("click", function() {
+		            if (typeof iFrameEventListener !== "undefined" && iFrameEventListener.openChat) {
+		                iFrameEventListener.openChat();  // Abre el chat
+		            } else {
+		                console.error("La función de chat no está disponible.");
+		            }
+		        });
+		    } else {
+		        console.error("El botón #startButton no existe en el DOM.");
+		    }
+		});
 
 		
 	</script>
@@ -98,18 +111,6 @@
 				s.parentNode.insertBefore(node, s);
 			})();
 
-
-
-
-					document.getElementById("startButton").addEventListener("click", function() {
-						Console.log("ENTRO FUNCION");
-					    if (typeof iFrameEventListener !== "undefined" && iFrameEventListener.openChat) {
-					        Console.log("tiro openchat");
-						    iFrameEventListener.openChat();  // Abre el chat
-					    } else {
-					        console.error("La función de chat no está disponible.");
-					    }
-					});
 		</script>
 	</body>
 </html>
