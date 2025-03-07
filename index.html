@@ -63,20 +63,25 @@
 		}
 
 
-		document.addEventListener("DOMContentLoaded", function() {
-		    var btn = document.getElementById("startButton");
-		    if (btn) {
-		        btn.addEventListener("click", function() {
-		            if (typeof iFrameEventListener !== "undefined" && iFrameEventListener.openChat) {
-		                iFrameEventListener.openChat();  // Abre el chat
-		            } else {
-		                console.error("La función de chat no está disponible.");
-		            }
-		        });
-		    } else {
-		        console.error("El botón #startButton no existe en el DOM.");
-		    }
-		});
+	document.getElementById("startButton").addEventListener("click", function() {
+    var chatFrame = null;
+
+    // Buscar el iframe que contiene inConcert.*
+    for (var i = 0; i < window.frames.length; i++) {
+        if (window.frames[i].inConcert) {
+            chatFrame = window.frames[i];
+            break;
+        }
+    }
+
+    // Si encontramos el iframe, llamamos a openChat
+    if (chatFrame && chatFrame.inConcert && chatFrame.inConcert.E1AB3590681AFFCBA7DEC246DE17ADDE) {
+        chatFrame.inConcert.E1AB3590681AFFCBA7DEC246DE17ADDE.openChat();
+    } else {
+        console.error("No se encontró la función openChat en el iframe.");
+    }
+});
+
 
 		
 	</script>
