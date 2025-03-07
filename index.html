@@ -64,8 +64,10 @@
 
 
 		document.getElementById("startButton").addEventListener("click", function() {
+			Console.log("ENTRO FUNCION");
 		    if (typeof iFrameEventListener !== "undefined" && iFrameEventListener.openChat) {
-		        iFrameEventListener.openChat();  // Abre el chat
+		        Console.log("tiro openchat");
+			    iFrameEventListener.openChat();  // Abre el chat
 		    } else {
 		        console.error("La función de chat no está disponible.");
 		    }
