@@ -61,6 +61,17 @@
 			});
 			alert('Evento enviado a dataLayer'); // Solo para pruebas
 		}
+
+
+		document.getElementById("startButton").addEventListener("click", function() {
+		    if (typeof iFrameEventListener !== "undefined" && iFrameEventListener.openChat) {
+		        iFrameEventListener.openChat();  // Abre el chat
+		    } else {
+		        console.error("La función de chat no está disponible.");
+		    }
+		});
+
+		
 	</script>
 
 	<body>
@@ -76,6 +87,8 @@
 		<!-- End Google Tag Manager (noscript) -->
 		<!-- Botón para invocar el evento -->
 		<button onclick="enviarEvento()">Enviar Evento</button>
+
+		<button id="startButton">Abrir Chat</button>
 
 		<!-- Script para el chat -->
 
