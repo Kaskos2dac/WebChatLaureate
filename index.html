@@ -61,29 +61,32 @@
 			});
 			alert('Evento enviado a dataLayer'); // Solo para pruebas
 		}
-
-		function waitForChatReady(callback) {
-		    var checkInterval = setInterval(function() {
-		        var chatFrame = null;
 		
-		        for (var i = 0; i < window.frames.length; i++) {
-		            if (window.frames[i].inConcert) {
-		                chatFrame = window.frames[i];
-		                break;
+		document.addEventListener("DOMContentLoaded", function() {
+		    var btn = document.getElementById("startButton");
+		    
+		    if (btn) {
+		        btn.addEventListener("click", function() {
+		            var chatFrame = null;
+		
+		            // Buscar el iframe que contiene inConcert.*
+		            for (var i = 0; i < window.frames.length; i++) {
+		                if (window.frames[i].inConcert) {
+		                    chatFrame = window.frames[i];
+		                    break;
+		                }
 		            }
-		        }
 		
-		        if (chatFrame && chatFrame.inConcert && chatFrame.inConcert.E1AB3590681AFFCBA7DEC246DE17ADDE) {
-		            clearInterval(checkInterval); // Detenemos la espera
-		            callback(chatFrame); // Ejecutamos la función cuando esté lista
-		        }
-		    }, 500);
-		}
-		
-		document.getElementById("startButton").addEventListener("click", function() {
-		    waitForChatReady(function(chatFrame) {
-		        chatFrame.inConcert.E1AB3590681AFFCBA7DEC246DE17ADDE.openChat();
-		    });
+		            // Si encontramos el iframe, llamamos a openChat
+		            if (chatFrame && chatFrame.inConcert && chatFrame.inConcert.E1AB3590681AFFCBA7DEC246DE17ADDE) {
+		                chatFrame.inConcert.E1AB3590681AFFCBA7DEC246DE17ADDE.openChat();
+		            } else {
+		                console.error("No se encontró la función openChat en el iframe.");
+		            }
+		        });
+		    } else {
+		        console.error("El botón #startButton no existe en el DOM.");
+		    }
 		});
 
 
